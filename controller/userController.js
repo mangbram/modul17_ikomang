@@ -86,7 +86,7 @@ const logout = async(req, res, next) => {
 const verify = async(req, res, next) => {
     try {
         // 13. membuat verify
-        const email=req.verified.email;
+        const email=req.data.email;
         const userData = await db.query(`SELECT * FROM unhan_modul_17 WHERE email=$1;`, [email])
         return res.status(200).json({
             id: userData.rows[0].id,
